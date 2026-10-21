@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand: #e11d48;
+  --accent: #f59e0b;
+  --bg: #0b0d12;
+}
+
+html { direction: rtl; }
+body {
+  background: var(--bg);
+  color: #e5e7eb;
+  font-family: var(--font-arabic), 'Tajawal', 'Cairo', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* شريط تمرير داكن */
+::-webkit-scrollbar { width: 10px; height: 8px; }
+::-webkit-scrollbar-track { background: #0b0d12; }
+::-webkit-scrollbar-thumb { background: #2a3040; border-radius: 8px; }
+::-webkit-scrollbar-thumb:hover { background: var(--brand); }
+
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+.gradient-overlay {
+  background: linear-gradient(to top, rgba(7,8,12,0.95) 0%, rgba(7,8,12,0.4) 50%, rgba(7,8,12,0.1) 100%);
+}
+.gradient-overlay-r {
+  background: linear-gradient(to left, rgba(7,8,12,0.9) 0%, rgba(7,8,12,0) 70%);
+}
+
+.card-hover { transition: transform .25s ease, box-shadow .25s ease; }
+.card-hover:hover { transform: translateY(-4px); box-shadow: 0 12px 40px -12px rgba(225,29,72,.5); }
+
+input, select, textarea { color-scheme: dark; }
