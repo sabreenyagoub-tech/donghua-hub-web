@@ -26,6 +26,11 @@ jobs:
         with:
           channel: 'stable'
 
+      - name: Fix Intl Dependency
+        run: |
+          cd mobile
+          flutter pub add intl:^0.20.3
+
       - name: Get dependencies
         run: |
           cd mobile
