@@ -22,13 +22,3 @@ export async function createClient() {
     }
   );
 }
-
-/** جلب الجلسة والدور (للتأكد من صلاحيات المالك) */
-export async function getSessionAndRole() {
-  const supabase = await createClient();
-  const { data: { user } } = await supabase.auth.getUser();
-  if (!user) return { user: null, role: null as any };
-  const { data: roleRow } = await supabase
-    .from('admin_roles').select('role').eq('user_id', user.id).maybeSingle();
-  return { user, role: (roleRow?.role as any) ?? null };
-}
